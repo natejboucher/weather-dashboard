@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+
+<body class="bg-secondary">
+
+    <div class="row min-vh-100 no-gutters">
+        <header class="col-12 col-lg-3 bg-info bg-gradient text-light sticky-top d-flex flex-column p-4 p-lg-3 shadow-lg">
+            <div>
+                <h1 class="header-text text-center text-white mb-3">Weather Dashboard</h1>
+                <p class="d-none d-lg-block text-light">Planning a trip? Or maybe you just want to see what the weather is like outside without stepping out the door? Search for a city and see what it's like outside!</p>
+                <div class="input-group mb-3 pb-3 border-bottom">
+                    <input type="text" id="inputCity" class="form-control" placeholder="Search city" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="submitSearch">Button</button>
+                    </div>
+                </div>
+                <div class="ml-md-auto w-100 w-md-auto" id="logCity">
+                    <!-- Saved city searches -->
+                </div>
+            </div>
+        </header>
+        <main class="col-12 col-lg-9 d-flex flex-column bg-dark bg-gradient" id="weatherData">
+            <!-- Display weather data -->
+            <div class="m-4 row bg-secondary card-shadow">
+                Yeet
+            </div>
+        </main>
+    </div>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

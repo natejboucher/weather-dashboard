@@ -1,0 +1,13 @@
+body    {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 3px;
+}
+
+.header-text    {
+    font-weight: bold;
+    text-shadow: 2px 2px 8px #535353;
+}
+
+.card-shadow    {
+    
+}
