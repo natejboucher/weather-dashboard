@@ -19,13 +19,13 @@
                 <h1 class="header-text text-center text-white mb-3">Weather Dashboard</h1>
                 <p class="d-none d-lg-block text-light">Planning a trip? Or maybe you just want to see what the weather
                     is like outside without stepping out the door? Search for a city and see what it's like outside!</p>
-                    <!-- search form -->
-                    <div class="input-group mb-3 pb-3 border-bottom">
+                <!-- search form -->
+                <form class="input-group mb-3 pb-3 border-bottom" id="inputForm">
                     <input type="text" id="inputCity" class="form-control" placeholder="Enter city" />
                     <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="submitSearch">Search</button>
+                        <button class="btn btn-primary" type="submit" id="submitSearch">Search</button>
                     </div>
-                </div>
+                </form>
                 <div class="ml-md-auto w-100 w-md-auto" id="logCity">
                     <!-- Saved city searches -->
                 </div>
@@ -33,7 +33,7 @@
         </header>
         <main class="col-12 col-lg-9 d-flex flex-column bg-dark bg-gradient" id="weatherData">
             <!-- City Card -->
-            <div class="m-4 row bg-secondary card-shadow p-2">
+            <div class="m-4 row bg-secondary card-shadow p-2 hidden">
                 <div class="col-12 p-4">
                     <h1 id="cityName" class="text-white">City Name</h1>
                     <span id="cityIcon"></span>
@@ -52,51 +52,54 @@
                 </div>
             </div>
             <!-- Forecast Cards -->
-            <div id="forecastCards" class="m-4 row justify-content-around">
+            <div id="forecastCards" class="m-4 row justify-content-around hidden">
                 <div class="col-12 col-md-6 col-xl-3 mb-2">
                     <div class="card">
-                      <h4 class="card-header bg-secondary text-light d-flex align-items-center">
-                        Days
-                      </h4>
-                      <ul id="weatherData" class="list-group list-group-flush">
-                      </ul>
+                        <h4 class="card-header bg-secondary text-light d-flex align-items-center">
+                            Days
+                        </h4>
+                        <ul id="weatherData" class="list-group list-group-flush">
+                        </ul>
                     </div>
-                  </div>
-                  <div class="col-12 col-md-6 col-xl-3 mb-3">
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mb-3">
                     <div class="card">
-                      <h4 class="card-header bg-secondary text-light d-flex align-items-center">
-                        Days
-                      </h4>
-                      <ul id="weatherData" class="list-group list-group-flush">
-                      </ul>
+                        <h4 class="card-header bg-secondary text-light d-flex align-items-center">
+                            Days
+                        </h4>
+                        <ul id="weatherData" class="list-group list-group-flush">
+                        </ul>
                     </div>
-                  </div><div class="col-12 col-md-6 col-xl-3 mb-3">
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mb-3">
                     <div class="card">
-                      <h4 class="card-header bg-secondary text-light d-flex align-items-center">
-                        Days
-                      </h4>
-                      <ul id="weatherData" class="list-group list-group-flush">
-                      </ul>
+                        <h4 class="card-header bg-secondary text-light d-flex align-items-center">
+                            Days
+                        </h4>
+                        <ul id="weatherData" class="list-group list-group-flush">
+                        </ul>
                     </div>
-                  </div><div class="col-12 col-md-6 col-xl-3 mb-3">
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mb-3">
                     <div class="card">
-                      <h4 class="card-header bg-secondary text-light d-flex align-items-center">
-                        Days
-                      </h4>
-                      <ul id="weatherData" class="list-group list-group-flush">
-                      </ul>
+                        <h4 class="card-header bg-secondary text-light d-flex align-items-center">
+                            Days
+                        </h4>
+                        <ul id="weatherData" class="list-group list-group-flush">
+                        </ul>
                     </div>
-                  </div><div class="col-12 col-md-6 col-xl-3 mb-3">
+                </div>
+                <div class="col-12 col-md-6 col-xl-3 mb-3">
                     <div class="card">
-                      <h4 class="card-header bg-secondary text-light d-flex align-items-center">
-                        Days
-                      </h4>
-                      <ul id="weatherData" class="list-group list-group-flush">
-                      </ul>
+                        <h4 class="card-header bg-secondary text-light d-flex align-items-center">
+                            Days
+                        </h4>
+                        <ul id="weatherData" class="list-group list-group-flush">
+                        </ul>
                     </div>
-                  </div>
+                </div>
             </div>
-            
+
         </main>
     </div>
 
