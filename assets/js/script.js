@@ -1,7 +1,7 @@
 var cityName = $('#inputCity');
 var city = [];
 
-//create buttons for searched cities
+// create buttons for searched cities
 function createButtons() {
     $('#inputCity').val("");
     $('#logCity').empty();
@@ -55,12 +55,13 @@ function displayCurrent(data, city) {
     $('#cityHumidity').text(humidity);
     $('#cityUv').text(uv);
     //check uv index
-    if (uv > 7) {
-        $('#cityUv').addClass('bg-danger');
-    } else if (uv > 2) {
-        $('#cityUv').addClass('bg-warning');
+    $('#cityUv').removeClass('bg-success bg-warning bg-danger');
+    if (uv < 2 || uv === 0 ) {
+        $('#cityUv').addClass('bg-success bg-gradient p-1 rounded');
+    } else if (uv < 7) {
+        $('#cityUv').addClass('bg-warning bg-gradient p-1 rounded');
     } else {
-        $('#cityUv').addClass('bg-success');
+        $('#cityUv').addClass('bg-danger bg-gradient p-1 rounded');
     }
 };
 // display 5 day forecast
@@ -68,7 +69,7 @@ function displayForecast(data) {
     $('#forecastCards').empty();
     //data variables
     var fiveDay = data.daily;
-
+    //loop to create elements
     for (var i = 1; i < fiveDay.length - 2; i++) {
         // data variables
         var dt = new Date(fiveDay[i].dt * 1000);
@@ -135,10 +136,9 @@ $('#inputForm').on('submit', function (event) {
         alert("You must enter a valid city!");
     }
 });
-
+// listener for saved searches
 $('#logCity').on('click', 'button', function (event) {
     var savedName = $(this).text().trim();
     loadCoord(savedName);
 });
-
 loadCities();
