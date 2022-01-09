@@ -7,7 +7,7 @@ function createButtons() {
     $('#logCity').empty();
     for (var i = 0; i < city.length; i++) {
         var savedCity = $("<button>")
-            .addClass("btn btn-primary m-1 col-12")
+            .addClass("btn btn-dark m-1 col-12")
             .text(city[i])
             .attr('id', 'savedBtn');
         $("#logCity").append(savedCity);
@@ -29,7 +29,13 @@ function loadCities() {
 
 function loadWeather(lat, lon)  {
     var searchWeather = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&exclude={part}&appid=d8d8ce1212370fd38db4eec97f65b1a1';
-    console.log(searchWeather);
+    
+    fetch(searchWeather).then(function (response)  {
+        return response.json();
+    })
+      .then(function (data)  {
+          console.log(data);
+      });
 };
 
 function loadCoord(city)  {
