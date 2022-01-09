@@ -39,6 +39,7 @@ function loadWeather(lat, lon, city) {
 };
 // display data for current day
 function displayCurrent(data, city) {
+    $('#currentContainer').removeClass('hidden');
     //data variables
     var date = moment().format("(MM/DD/YYYY)");
     var dataIcon = data.current.weather[0].icon;
@@ -63,39 +64,46 @@ function displayCurrent(data, city) {
     }
 };
 // display 5 day forecast
-function displayForecast(data, city)  {
+function displayForecast(data) {
+    $('#forecastCards').empty();
     //data variables
     var fiveDay = data.daily;
-    for (var i = 1; i < fiveDay.length - 2; i++)  {
-        var dt = new Date(fiveDay[i].dt*1000);
+
+    for (var i = 1; i < fiveDay.length - 2; i++) {
+        // data variables
+        var dt = new Date(fiveDay[i].dt * 1000);
         var date = dt.toLocaleDateString("en-US");
-        var dataIcon = data.current.weather[0].icon;
-        var temp = data.current.temp;
-        var humidity = data.current.humidity;
-        var wind = data.current.wind_speed + ' MPH';
-    
+        var dataIcon = data.daily[i].weather[0].icon;
+        var temp = data.daily[i].temp.max;
+        var humidity = data.daily[i].humidity;
+        var wind = data.daily[i].wind_speed + ' MPH';
+
         // create forecast elements
-    // div to hold info
-    var forecastDiv = $("<div>").addClass("col-12 col-md-6 col-xl-3 mb-2").append("#forecastCards");
-    // card to display info
-    var forecastCard = $("<div>").addClass("card");
-    // element for date
-    var forecastDate = $("<p>")
-
+        // div to hold info
+        var forecastDiv = $('<div>').addClass('col-12 col-md-6 col-xl-3 mb-2');
+        // card to display info
+        var forecastCard = $('<div>').addClass('card bg-secondary p-2');
+        // element for date
+        var forecastDate = $('<h3>').addClass('text-white p-1').text(date).append(forecastCard);
+        // element for icon
+        var forecastIcon = $('<img src="https://openweathermap.org/img/w/' + dataIcon + '.png" />');
+        // ul for weather data
+        var forecastUl = $('<ul>').addClass('list-group');
+        // li for temp
+        var forecastTemp = $('<li>').addClass('list-group-item p-1 bg-secondary text-white').text('Temp: ' + temp);
+        // li for wind
+        var forecastWind = $('<li>').addClass('list-group-item p-1 bg-secondary text-white').text('Wind: ' + wind);
+        // li for humidity
+        var forecastHumidity = $('<li>').addClass('list-group-item p-1 bg-secondary text-white').text('Humidity: ' + humidity);
+        $('#forecastCards').append(forecastDiv);
+        forecastDiv.append(forecastCard);
+        forecastCard.append(forecastDate);
+        forecastDate.append(forecastIcon);
+        forecastDiv.append(forecastUl);
+        forecastUl.append(forecastTemp, forecastWind, forecastHumidity);
     }
-
-
-    //   <div class="col-12 col-md-6 col-xl-3 mb-2">
-//   <div class="card">
-//       <h4 class="card-header bg-secondary text-light d-flex align-items-center">
-//           Days
-//       </h4>
-//       <ul id="weatherData" class="list-group list-group-flush">
-//       </ul>
-//   </div>
-// </div>
 };
-    
+
 // load coordinates for searched/saved cities
 function loadCoord(cityInput) {
     var searchCity = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&appid=d8d8ce1212370fd38db4eec97f65b1a1';
