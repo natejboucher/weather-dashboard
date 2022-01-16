@@ -1,6 +1,5 @@
 var cityName = $('#inputCity');
 var city = [];
-
 // create buttons for searched cities
 function createButtons() {
     $('#inputCity').val("");
@@ -104,7 +103,6 @@ function displayForecast(data) {
         forecastUl.append(forecastTemp, forecastWind, forecastHumidity);
     }
 };
-
 // load coordinates for searched/saved cities
 function loadCoord(cityInput) {
     var searchCity = 'https://api.openweathermap.org/data/2.5/weather?q=' + cityInput + '&appid=d8d8ce1212370fd38db4eec97f65b1a1';
